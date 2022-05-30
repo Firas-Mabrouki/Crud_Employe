@@ -1,0 +1,40 @@
+<main id="main" class="main">
+
+            <form #f="ngForm" (ngSubmit)="update(f)" *ngFor="let item of empDetails">
+              <div class="mb-3" >
+                <label for="exampleFormControlInput1" class="form-label">FisrtName</label>
+                <input type="text" id="color"  class="form-control"  [(ngModel)]="item.data.firstname" id="firstname" placeholder="firstname"  name="firstname" #firstname="ngModel" ngModel>
+              </div>
+      
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">LastName</label>
+                <input type="text" id="color"  class="form-control" id="lastname" [(ngModel)]="item.data.lastname" placeholder="lastname" name="lastname" #lastname="ngModel" ngModel>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Date</label>
+                <input type="date" id="color"  class="form-control" id="date" [(ngModel)]="item.data.date" placeholder="date" name="date" #date="ngModel" ngModel>
+              </div>
+              
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Place</label>
+                <input type="text" id="color"  class="form-control" id="place" [(ngModel)]="item.data.place" placeholder="place" name="place" #place="ngModel" ngModel>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Cin</label>
+                <input type="number" id="color"  class="form-control" [(ngModel)]="item.data.cin" id="cin" placeholder="cin" name="cin" #cin="ngModel" ngModel>
+              </div>
+              
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                <input type="number" id="color"  class="form-control" [(ngModel)]="item.data.phonenumber" id="phonenumber" placeholder="phonenumber" name="phonenumber" #phonenumber="ngModel" ngModel>
+              </div>
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" id="image" name="image" #image="ngModel" ngModel>
+              
+              </div>
+              <div class="alert alert-success"></div>
+              <button  class="btn btn-success" style="width: 100%;" >Update</button>
+              </form>
+        
+           
+</main>

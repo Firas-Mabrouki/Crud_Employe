@@ -1,0 +1,76 @@
+<main id="main" class="main">
+  <div class="container">
+    <div class="body">
+      <button class="btn btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal"> Add Employe</button>
+      <br>
+      <br>
+      <div class="row">
+       <div class="col col-12 col-md-6 col-lg-3" *ngFor="let item of dataArray">
+         <div class="card" style="width: 18rem;">
+           <img src={{item.data.image}} class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title">{{item.data.cin}}</h5>
+             <p class="card-text">{{item.data.firstname}} {{item.data.lastname}}</p>
+             <a  routerLink='/details'  class="btn btn-primary" (click)="findById(item.id)">Details</a>
+              <button class="btn btn-danger"  (click)="delete(item.id)">delete</button>
+ 
+            </div>
+         </div>
+       </div>
+       </div>
+    </div>
+   
+  </div>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form #f="ngForm" (ngSubmit)="addemloyees(f)">
+        <div class="mb-3" >
+          <label for="exampleFormControlInput1" class="form-label">FisrtName</label>
+          <input type="text" id="color"  class="form-control" id="firstname" placeholder="firstname" name="firstname" #firstname="ngModel" ngModel>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">LastName</label>
+          <input type="text" id="color"  class="form-control" id="lastname" placeholder="lastname" name="lastname" #lastname="ngModel" ngModel>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Date</label>
+          <input type="date" id="color"  class="form-control" id="date" placeholder="date" name="date" #date="ngModel" ngModel>
+        </div>
+        
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Place</label>
+          <input type="text" id="color"  class="form-control" id="place" placeholder="place" name="place" #place="ngModel" ngModel>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Cin</label>
+          <input type="number" id="color"  class="form-control" id="cin" placeholder="cin" name="cin" #cin="ngModel" ngModel>
+        </div>
+        
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+          <input type="number" id="color"  class="form-control" id="phonenumber" placeholder="phonenumber" name="phonenumber" #phonenumber="ngModel" ngModel>
+        </div>
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" id="image" name="image" #image="ngModel" ngModel>
+        
+        </div>
+        <div class="alert alert-success" *ngIf="successMessage">{{successMessage}}</div>
+        <button  class="btn btn-success" style="width: 100%;">add employe</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
